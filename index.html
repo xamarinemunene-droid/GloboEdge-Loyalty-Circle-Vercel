@@ -1,558 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GloboEdge — Special Offers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GloboEdge Loyalty Circle</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-#ge-offers, #ge-offers * { box-sizing: border-box; }
-
-#ge-offers {
-  --ink: #1d1d1f;
-  --grey: #6e6e73;
-  --panel: #f5f5f7;
-  --line: #00000012;
-  --line-strong: #d2d2d7;
-  --blue: #0071e3;
-  --blue-hover: #0077ed;
-
-  width: 100%;
-  background: #fff;
-  color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
-}
-
-#ge-offers a { text-decoration: none; color: inherit; }
-#ge-offers button { font: inherit; border: none; background: none; cursor: pointer; }
-#ge-offers img { max-width: 100%; display: block; }
-
-/* =========================================================
-   NAV
-   ========================================================= */
-#ge-offers .ge-header {
-  position: sticky; top: 0; z-index: 9999;
-  background: #ffffffd9;
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--line);
-}
-#ge-offers .ge-nav {
-  height: 58px; max-width: 1320px; margin: auto; padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between; position: relative;
-}
-#ge-offers .ge-logo img { height: 30px; width: auto; }
-#ge-offers .ge-desktop-nav { display: flex; gap: 28px; height: 100%; align-items: center; }
-#ge-offers .ge-desktop-nav a,
-#ge-offers .ge-nav-item button { font-size: 13px; color: var(--ink) !important; padding: 20px 0; }
-#ge-offers .ge-actions { display: flex; gap: 18px; align-items: center; }
-#ge-offers .ge-actions button, #ge-offers .ge-actions a { font-size: 13px; color: var(--ink) !important; }
-#ge-offers .ge-actions button { font-size: 20px; }
-
-#ge-offers .ge-mega {
-  display: none; position: absolute; left: 0; right: 0; top: 58px;
-  background: #fffffff9; box-shadow: 0 20px 50px #00000012; border-bottom: 1px solid var(--line);
-}
-#ge-offers .ge-mega.open { display: block; }
-#ge-offers .ge-mega-inner { max-width: 1320px; margin: auto; padding: 35px 24px 42px; }
-#ge-offers .ge-mega section { display: none; }
-#ge-offers .ge-mega section.active { display: block; }
-#ge-offers .ge-mega section > b { font-size: 12px; text-transform: uppercase; letter-spacing: .16em; color: var(--grey); }
-#ge-offers .ge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 15px; }
-#ge-offers .ge-grid a { background: var(--panel); border-radius: 18px; padding: 18px; display: block; }
-#ge-offers .ge-grid a:hover { background: #ededf0; }
-#ge-offers .ge-grid strong, #ge-offers .ge-grid small { display: block; }
-#ge-offers .ge-grid small { color: var(--grey); margin-top: 7px; font-size: 12px; }
-#ge-offers .ge-menu-toggle { display: none; font-size: 22px; color: var(--ink); }
-#ge-offers .ge-mobile-menu { display: none; }
-
-@media(max-width: 900px) {
-  #ge-offers .ge-desktop-nav { display: none; }
-  #ge-offers .ge-menu-toggle { display: block; }
-  #ge-offers .ge-mobile-menu {
-    display: none; position: fixed; z-index: 9998; inset: 58px 0 0;
-    background: #fff; padding: 20px 24px; overflow: auto;
-  }
-  #ge-offers .ge-mobile-menu.open { display: block; }
-  #ge-offers .ge-mobile-menu a {
-    display: flex; justify-content: space-between; padding: 21px 0;
-    border-bottom: 1px solid var(--line); font-size: 22px; font-weight: 600; color: var(--ink) !important;
-  }
-  #ge-offers .ge-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* =========================================================
-   SPECIAL OFFERS — centered, red flaming animated heading
-   ========================================================= */
-#ge-offers .go-special-offers {
-  font-size: clamp(26px, 3.6vw, 42px);
-  font-weight: 800;
-  letter-spacing: -.01em;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fffdf5;
-  -webkit-text-stroke: 1.4px #000;
-  text-stroke: 1.4px #000;
-  margin: 26px auto 20px;
-  padding: 0 24px;
-  max-width: 1320px;
-  animation: goFlameFlicker 1.1s infinite alternate;
-}
-
-@keyframes goFlameFlicker {
-  0%   { text-shadow: 0 0 4px #fff, 0 0 10px #ff8a80, 0 0 18px #ff3b30, 0 0 28px #d50000, 0 0 40px #8b0000; }
-  25%  { text-shadow: 0 0 6px #fff, 0 0 14px #ff6f60, 0 0 22px #ff1a1a, 0 0 34px #c40000, 0 0 46px #7a0000; }
-  50%  { text-shadow: 0 0 3px #fff, 0 0 8px  #ff9d90, 0 0 16px #ff2b1f, 0 0 26px #cc0000, 0 0 36px #700000; }
-  75%  { text-shadow: 0 0 7px #fff, 0 0 16px #ff5c4d, 0 0 24px #ff1100, 0 0 36px #b30000, 0 0 48px #660000; }
-  100% { text-shadow: 0 0 4px #fff, 0 0 12px #ff8577, 0 0 20px #ff2200, 0 0 30px #c00000, 0 0 42px #7a0000; }
-}
-
-/* =========================================================
-   LAYOUT — hero column + offer sidebar
-   ========================================================= */
-#ge-offers .go-wrap {
-  max-width: 1320px; margin: 0 auto; padding: 0 24px 80px;
-  display: grid; grid-template-columns: 2.15fr 1fr; gap: 22px; align-items: start;
-}
-
-/* =========================================================
-   HERO BLOCKS (left column)
-   ========================================================= */
-#ge-offers .go-hero {
-  position: relative;
-  min-height: 460px;
-  border-radius: 26px;
-  overflow: hidden;
-  background: #000;
-  margin-bottom: 22px;
-  display: flex;
-  align-items: flex-end;
-}
-#ge-offers .go-hero:last-of-type { margin-bottom: 0; }
-
-#ge-offers .go-hero video,
-#ge-offers .go-hero .go-hero-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; background-size: cover; background-position: center;
-}
-
-#ge-offers .go-hero::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, #00000000 0%, #00000000 55%, #00000080 100%);
-}
-
-/* Glassmorphism caption, tinted yellow, shared by every hero block */
-#ge-offers .go-hero-caption {
-  position: relative; z-index: 2;
-  margin: 0 0 26px 26px;
-  max-width: 420px;
-  border-radius: 20px;
-  padding: 22px 26px;
-  background: rgba(255, 221, 87, 0.22);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-}
-
-#ge-offers .go-hero-caption h3 {
-  font-size: 22px; font-weight: 700; letter-spacing: -.02em;
-  margin: 0 0 6px; color: var(--ink);
-}
-#ge-offers .go-hero-caption p {
-  font-size: 14px; line-height: 1.5; color: #2c2c2e; margin: 0 0 14px;
-}
-
-#ge-offers .go-hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-
-#ge-offers .go-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 10px 20px; border-radius: 999px; font-size: 13px; font-weight: 600;
-  transition: transform .15s ease;
-}
-#ge-offers .go-btn:hover { transform: translateY(-1px); }
-#ge-offers .go-btn-dark { background: #1d1d1f; color: #fff !important; }
-#ge-offers .go-btn-outline { background: transparent; border: 1.5px solid #1d1d1f; color: #1d1d1f !important; }
-
-/* =========================================================
-   PERK BADGES — small chips overlaid on product images
-   ========================================================= */
-#ge-offers .go-perks {
-  position: absolute;
-  top: 12px; left: 12px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-#ge-offers .go-perk {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(0,0,0,0.62);
-  color: #fff;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .01em;
-  padding: 5px 11px;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  white-space: nowrap;
-}
-
-/* =========================================================
-   OFFER SIDEBAR (right column) — 4 square cards
-   ========================================================= */
-#ge-offers .go-offers-col { display: flex; flex-direction: column; gap: 22px; }
-
-#ge-offers .go-offer-card {
-  background: #fff; border: 1px solid var(--line); border-radius: 20px;
-  overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.04);
-}
-
-#ge-offers .go-offer-image {
-  position: relative;
-  aspect-ratio: 1 / 1; width: 100%;
-  background-size: cover; background-position: center;
-  background-color: var(--panel);
-}
-
-#ge-offers .go-offer-body { padding: 14px 16px 18px; }
-
-#ge-offers .go-offer-caption {
-  font-size: 13px; font-weight: 600; color: var(--ink);
-  margin: 0 0 10px; line-height: 1.4;
-}
-
-#ge-offers .go-offer-actions { display: flex; gap: 8px; }
-
-#ge-offers .go-btn-sm {
-  display: inline-flex; align-items: center; justify-content: center;
-  flex: 1; padding: 8px 10px; border-radius: 999px;
-  font-size: 12px; font-weight: 600; transition: transform .15s ease;
-}
-#ge-offers .go-btn-sm:hover { transform: translateY(-1px); }
-#ge-offers .go-btn-dark-sm { background: #1d1d1f; color: #fff !important; }
-#ge-offers .go-btn-outline-sm { background: transparent; border: 1.3px solid #1d1d1f; color: #1d1d1f !important; }
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-#ge-offers .ge-footer {
-  padding: 65px 24px 30px; background: #f5f5f7 !important; color: #6e6e73 !important;
-}
-#ge-offers .ge-footer > div, #ge-offers .ge-footer > p, #ge-offers .ge-footer > nav {
-  max-width: 1320px; margin: 0 auto;
-}
-#ge-offers .ge-footer .footer-logo { height: 26px; width: auto; }
-#ge-offers .ge-footer .footer-tagline { color: #6e6e73 !important; font-size: 14px; margin: 12px 0 0; }
-#ge-offers .ge-footer nav { display: flex; gap: 24px; margin-top: 30px !important; font-size: 13px; }
-#ge-offers .ge-footer nav a { color: #1d1d1f !important; font-weight: 500; }
-#ge-offers .ge-footer .footer-copy {
-  border-top: 1px solid #0001; padding-top: 20px; margin-top: 45px; font-size: 12px; color: #6e6e73 !important;
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-@media(max-width: 900px) {
-  #ge-offers .go-wrap { grid-template-columns: 1fr; }
-  #ge-offers .go-hero { min-height: 380px; }
-}
-@media(max-width: 560px) {
-  #ge-offers .go-hero { min-height: 320px; border-radius: 20px; }
-  #ge-offers .go-hero-caption { margin: 0 0 18px 18px; max-width: calc(100% - 36px); padding: 18px 20px; }
-  #ge-offers .go-special-offers { font-size: 24px; }
-}
+:root{--bg:#F3F5FA;--card:#FFFFFF;--line:#E3E7F0;--text:#12172B;--muted:#67708A;--red:#E14135;--blue:#0071E3;--navy:#0F1530;
+--gold:#C99A1B;--gold-bg:#FBF3DC;--silver:#7B8496;--silver-bg:#EEF0F4;--bronze:#B4693A;--bronze-bg:#F8E9DE;--platinum:#1D8FA8;--platinum-bg:#DDF2F7;--shadow:0 4px 18px rgba(15,21,48,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--blue:#2997FF;--bg:#0B0F1F;--card:#141A32;--line:#232B4A;--text:#F1F2F7;--muted:#8B93AD;--gold:#E6B94A;--gold-bg:#2C2611;--silver:#B9C0CE;--silver-bg:#22273A;--bronze:#E0925F;--bronze-bg:#2D2016;--platinum:#7FD3E6;--platinum-bg:#12303A;--shadow:none}}
+:root[data-theme="dark"]{--blue:#2997FF;--bg:#0B0F1F;--card:#141A32;--line:#232B4A;--text:#F1F2F7;--muted:#8B93AD;--gold:#E6B94A;--gold-bg:#2C2611;--silver:#B9C0CE;--silver-bg:#22273A;--bronze:#E0925F;--bronze-bg:#2D2016;--platinum:#7FD3E6;--platinum-bg:#12303A;--shadow:none}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;display:flex;justify-content:center;padding:16px 14px 60px}
+.wrap{width:100%;max-width:560px}
+.hero{background:#000;color:#fff;border-radius:20px;padding:22px 20px;border-bottom:4px solid var(--red);margin-bottom:16px}
+.logo{height:44px;margin-bottom:18px;display:flex;align-items:center;position:relative;z-index:1}
+.logo img{height:44px;max-width:100%;object-fit:contain;width:auto;display:none}
+.logo .wm{font-family:Sora,sans-serif;font-weight:700;letter-spacing:.14em;font-size:.85rem}
+.logo .wm b{color:#FF6A5E}
+h1{font-family:Sora,sans-serif;font-size:1.5rem;margin:0 0 4px;position:relative;z-index:1}
+.hero p{margin:0 0 18px;color:#A1A1A6;font-size:.88rem;line-height:1.5;max-width:400px}
+.stats{display:flex;gap:10px;position:relative;z-index:1}
+.stat{flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px}
+.stat b{display:block;font-family:Sora,sans-serif;font-size:1.15rem}
+.stat span{font-size:.72rem;color:#A1A1A6}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-bottom:6px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:8px 14px;font:inherit;font-size:.85rem;font-weight:500;cursor:pointer;display:flex;gap:7px;align-items:center}
+.tab i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--muted))}
+.tab em{font-style:normal;color:var(--muted);font-size:.78rem}
+.tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}.tab.on em{color:inherit;opacity:.7}
+.gold{--c:var(--gold);--cb:var(--gold-bg)}.silver{--c:var(--silver);--cb:var(--silver-bg)}.bronze{--c:var(--bronze);--cb:var(--bronze-bg)}.platinum{--c:var(--platinum);--cb:var(--platinum-bg)}
+.panel{background:var(--card);border-radius:16px;box-shadow:var(--shadow);border:1px solid var(--line);padding:18px;margin-bottom:18px}
+h2{font-family:Sora,sans-serif;font-size:1.02rem;margin:0 0 14px}
+.field{margin-bottom:11px}
+label{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-bottom:5px}
+input,select{width:100%;background:var(--bg);border:1.5px solid var(--line);color:var(--text);font:inherit;font-size:.95rem;padding:11px 12px;border-radius:10px;outline:none}
+input:focus,select:focus{border-color:var(--blue)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.preview{min-height:1.4em;margin-bottom:10px}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--c);background:var(--cb);border-radius:999px;padding:4px 10px}
+.primary{width:100%;background:var(--blue);color:#fff;border:0;font-family:Sora,sans-serif;font-weight:600;font-size:.95rem;padding:14px;border-radius:12px;cursor:pointer}
+.primary:disabled{opacity:.5}
+.msg{font-size:.84rem;margin-top:9px;min-height:1.2em}.msg.err{color:#D9534A}.msg.ok{color:var(--blue)}
+.bar{display:flex;gap:8px;margin-bottom:14px}
+.bar input{flex:1}
+.ghost{background:var(--card);border:1.5px solid var(--line);color:var(--text);font:inherit;font-size:.8rem;padding:0 13px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.sec{display:flex;align-items:center;gap:8px;margin:20px 2px 10px}
+.sec b{font-family:Sora,sans-serif;font-size:.95rem;color:var(--c)}
+.sec span{font-size:.78rem;color:var(--muted)}
+.sec:after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:9px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}
+.av{flex:0 0 42px;height:42px;border-radius:50%;background:var(--cb);color:var(--c);display:grid;place-items:center;font-family:Sora,sans-serif;font-weight:700;font-size:.9rem}
+.mid{flex:1;min-width:0}
+.cn{font-weight:600;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cm{font-size:.78rem;color:var(--muted);margin-top:2px}
+.cm a{color:var(--muted);text-decoration:none}
+.prog{height:5px;border-radius:99px;background:var(--line);margin-top:8px;overflow:hidden}
+.prog div{height:100%;background:var(--c);border-radius:99px}
+.nx{font-size:.68rem;color:var(--muted);margin-top:4px}
+.rt{text-align:right}
+.amt{font-family:Sora,sans-serif;font-weight:700;font-size:.92rem;white-space:nowrap}
+.del{background:none;border:0;color:var(--muted);font-size:.7rem;cursor:pointer;padding:6px 0 0}
+.empty{color:var(--muted);font-size:.9rem;text-align:center;padding:24px 0}
+#undo{display:none;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--red);border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:.84rem}
+#undo .who{min-width:0}#undo .who b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#undo .who span{color:var(--muted);font-size:.74rem}
+.ub{background:none;border:1.5px solid var(--red);color:var(--red);font:inherit;font-weight:600;font-size:.8rem;padding:8px 12px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.ub.yes{background:var(--red);color:#fff}.ub.no{border-color:var(--line);color:var(--muted)}
+.lk{background:none;border:0;color:var(--blue);font:inherit;font-size:.74rem;cursor:pointer;padding:0;display:none}
+footer{margin-top:22px;font-size:.74rem;color:var(--muted);line-height:1.6;text-align:center}
 </style>
 </head>
 <body>
-
-<div id="ge-offers">
-
-  <header class="ge-header">
-    <div class="ge-nav">
-      <a class="ge-logo" href="/">
-        <img src="https://globoedge.co.ke/wp-content/uploads/2026/09/GloboEdge-Apple-Authorised-Reseller-on-black-background-e1668686070534.png" alt="GloboEdge">
-      </a>
-      <button class="ge-menu-toggle" type="button">☰</button>
-      <nav class="ge-desktop-nav">
-        <div class="ge-nav-item" data-menu="mac"><button>Mac</button></div>
-        <div class="ge-nav-item" data-menu="iphone"><button>iPhone</button></div>
-        <div class="ge-nav-item" data-menu="ipad"><button>iPad</button></div>
-        <div class="ge-nav-item" data-menu="watch"><button>Watch</button></div>
-        <div class="ge-nav-item" data-menu="airpods"><button>AirPods</button></div>
-        <div class="ge-nav-item" data-menu="accessories"><button>Accessories</button></div>
-        <a href="/offers/">Offers</a>
-      </nav>
-      <div class="ge-actions">
-        <button type="button">⌕</button>
-        <a href="/cart/">Bag</a>
-      </div>
-    </div>
-
-    <div class="ge-mega" id="go-mega">
-      <div class="ge-mega-inner">
-        <section data-panel="mac"><b>Mac</b>
-          <div class="ge-grid">
-            <a href="/mac/macbook-pro/"><strong>MacBook Pro</strong><small>Pro performance.</small></a>
-            <a href="/mac/macbook-air/"><strong>MacBook Air</strong><small>Thin. Light. Powerful.</small></a>
-            <a href="/mac/imac/"><strong>iMac</strong><small>A desktop that stands out.</small></a>
-            <a href="/mac/mac-mini/"><strong>Mac mini</strong><small>Small size. Serious power.</small></a>
-          </div>
-        </section>
-        <section data-panel="iphone"><b>iPhone</b>
-          <div class="ge-grid">
-            <a href="/iphone/iphone-18-pro-max/"><strong>iPhone 18 Pro Max</strong><small>The ultimate iPhone.</small></a>
-            <a href="/iphone/iphone-18-duo/"><strong>iPhone 18 Duo</strong><small>Beautiful. Powerful.</small></a>
-            <a href="/iphone/iphone-17-pro-max/"><strong>iPhone 17 Pro Max</strong><small>Maximum performance.</small></a>
-            <a href="/iphone/iphone-air/"><strong>iPhone 17 Air</strong><small>Light. Fast. Remarkable.</small></a>
-          </div>
-        </section>
-        <section data-panel="ipad"><b>iPad</b>
-          <div class="ge-grid">
-            <a href="/ipad/ipad-pro/"><strong>iPad Pro</strong><small>Power for your workflow.</small></a>
-            <a href="/ipad/ipad-air/"><strong>iPad Air</strong><small>Powerful and versatile.</small></a>
-          </div>
-        </section>
-        <section data-panel="watch"><b>Apple Watch</b>
-          <div class="ge-grid">
-            <a href="/watch/ultra-4/"><strong>Apple Watch Ultra 4</strong><small>The ultimate sports watch.</small></a>
-            <a href="/watch/series-12/"><strong>Apple Watch Series 12</strong><small>Health, fitness and connection.</small></a>
-          </div>
-        </section>
-        <section data-panel="airpods"><b>AirPods</b>
-          <div class="ge-grid">
-            <a href="/airpods/airpods-pro/"><strong>AirPods Pro</strong><small>Immersive sound.</small></a>
-            <a href="/airpods/airpods-max/"><strong>AirPods Max</strong><small>Premium high-fidelity sound.</small></a>
-          </div>
-        </section>
-        <section data-panel="accessories"><b>Accessories</b>
-          <div class="ge-grid">
-            <a href="/accessories/cases/"><strong>Cases</strong><small>Protection with style.</small></a>
-            <a href="/accessories/chargers/"><strong>Power &amp; Charging</strong><small>Stay powered.</small></a>
-          </div>
-        </section>
-      </div>
-    </div>
-  </header>
-
-  <div class="ge-mobile-menu" id="go-mobile-menu">
-    <a href="/mac/">Mac <span>›</span></a>
-    <a href="/iphone/">iPhone <span>›</span></a>
-    <a href="/ipad/">iPad <span>›</span></a>
-    <a href="/watch/">Watch <span>›</span></a>
-    <a href="/airpods/">AirPods <span>›</span></a>
-    <a href="/accessories/">Accessories <span>›</span></a>
-    <a href="/offers/">Offers <span>›</span></a>
-  </div>
-
-  <!-- SPECIAL OFFERS — centered, red flaming heading -->
-  <h2 class="go-special-offers">Special Offers</h2>
-
-  <div class="go-wrap">
-
-    <!-- LEFT: 4 hero blocks -->
-    <div class="go-hero-col">
-
-      <!-- HERO 1 — iPhone Duo (video loop) -->
-      <div class="go-hero">
-        <video autoplay muted loop playsinline poster="YOUR-DUO-HERO-POSTER-URL-HERE">
-          <source src="YOUR-DUO-HERO-VIDEO-URL-HERE" type="video/mp4">
-        </video>
-        <div class="go-hero-caption">
-          <h3>iPhone Duo</h3>
-          <p>The first foldable iPhone. From KSh 349,999.</p>
-          <div class="go-hero-actions">
-            <a class="go-btn go-btn-outline" href="/iphone/iphone-18-duo/">Learn More</a>
-            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- HERO 2 — iPhone Air (video loop) -->
-      <div class="go-hero">
-        <video autoplay muted loop playsinline poster="YOUR-AIR-HERO-POSTER-URL-HERE">
-          <source src="https://globoedge.co.ke/wp-content/uploads/2026/09/iPhone-Air_2-1.mp4" type="video/mp4">
-        </video>
-        <div class="go-hero-caption">
-          <h3>iPhone Air</h3>
-          <p>Incredibly light and thin. From KSh 179,999.</p>
-          <div class="go-hero-actions">
-            <a class="go-btn go-btn-outline" href="/iphone/iphone-air/">Learn More</a>
-            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- HERO 3 — MacBook Pro (static photo) -->
-      <div class="go-hero">
-        <div class="go-hero-img" style="background-image:url('YOUR-MACBOOKPRO-STATIC-IMAGE-URL-HERE');"></div>
-        <div class="go-hero-caption">
-          <h3>MacBook Pro</h3>
-          <p>Pro performance, M4 Pro inside. From KSh 299,999.</p>
-          <div class="go-hero-actions">
-            <a class="go-btn go-btn-outline" href="/mac/macbook-pro/">Learn More</a>
-            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- HERO 4 — NEW: MacBook Pro (video loop) -->
-      <div class="go-hero">
-        <video autoplay muted loop playsinline poster="YOUR-MACBOOKPRO-VIDEO-POSTER-URL-HERE">
-          <source src="YOUR-MACBOOKPRO-VIDEO-URL-HERE" type="video/mp4">
-        </video>
-        <div class="go-hero-caption">
-          <h3>MacBook Pro — In Motion</h3>
-          <p>See the M4 Pro chip and Liquid Retina XDR display in action.</p>
-          <div class="go-hero-actions">
-            <a class="go-btn go-btn-outline" href="/mac/macbook-pro/">Learn More</a>
-            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT: 4 square offer cards, with perk badges on each image -->
-    <div class="go-offers-col">
-
-      <div class="go-offer-card">
-        <div class="go-offer-image" style="background-image:url('YOUR-AIRPODSPRO-SQUARE-IMAGE-URL-HERE');">
-          <div class="go-perks">
-            <span class="go-perk">✓ 24-Mo Warranty</span>
-            <span class="go-perk">🚚 Free Pickup</span>
-          </div>
-        </div>
-        <div class="go-offer-body">
-          <p class="go-offer-caption">AirPods Pro 3 — Now KSh 34,999</p>
-          <div class="go-offer-actions">
-            <a class="go-btn-sm go-btn-outline-sm" href="/airpods/airpods-pro/">Learn More</a>
-            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="go-offer-card">
-        <div class="go-offer-image" style="background-image:url('YOUR-WATCHULTRA-SQUARE-IMAGE-URL-HERE');">
-          <div class="go-perks">
-            <span class="go-perk">✓ Genuine Apple</span>
-            <span class="go-perk">🚚 Free Pickup</span>
-          </div>
-        </div>
-        <div class="go-offer-body">
-          <p class="go-offer-caption">Apple Watch Ultra 4 — Now KSh 124,999</p>
-          <div class="go-offer-actions">
-            <a class="go-btn-sm go-btn-outline-sm" href="/watch/ultra-4/">Learn More</a>
-            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="go-offer-card">
-        <div class="go-offer-image" style="background-image:url('YOUR-IPADPRO-SQUARE-IMAGE-URL-HERE');">
-          <div class="go-perks">
-            <span class="go-perk">✓ 24-Mo Warranty</span>
-            <span class="go-perk">💳 Pay on Delivery</span>
-          </div>
-        </div>
-        <div class="go-offer-body">
-          <p class="go-offer-caption">iPad Pro 13″ — Now KSh 184,999</p>
-          <div class="go-offer-actions">
-            <a class="go-btn-sm go-btn-outline-sm" href="/ipad/ipad-pro/">Learn More</a>
-            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="go-offer-card">
-        <div class="go-offer-image" style="background-image:url('YOUR-IPHONE17PROMAX-SQUARE-IMAGE-URL-HERE');">
-          <div class="go-perks">
-            <span class="go-perk">✓ Genuine Apple</span>
-            <span class="go-perk">🚚 Free Pickup</span>
-          </div>
-        </div>
-        <div class="go-offer-body">
-          <p class="go-offer-caption">iPhone 17 Pro Max — Now KSh 214,999</p>
-          <div class="go-offer-actions">
-            <a class="go-btn-sm go-btn-outline-sm" href="/iphone/iphone-17-pro-max/">Learn More</a>
-            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <footer class="ge-footer">
-    <div>
-      <img class="footer-logo" src="https://globoedge.co.ke/wp-content/uploads/2026/09/GloboEdge-Apple-Authorised-Reseller-on-black-background-e1668686070534.png" alt="GloboEdge">
-      <p class="footer-tagline">Premium Apple products. Sales · Service · Support</p>
-    </div>
-    <nav>
-      <a href="/contact/">Contact</a>
-      <a href="/support/">Support</a>
-      <a href="/warranty/">Warranty</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
-    <p class="footer-copy">© 2026 GloboEdge Solutions. All rights reserved.</p>
-  </footer>
-
+<div class="wrap">
+<div class="hero">
+  <div class="logo" id="logoSlot"><img id="logoImg" src="https://globoedge.co.ke/wp-content/uploads/2026/09/GloboEdge-Apple-Authorised-Reseller-on-black-background-e1668686070534.png" alt="GloboEdge Apple Authorised Reseller" style="display:block;max-width:100%;height:44px;object-fit:contain;object-position:left center"><div class="wm" id="wm" style="display:none">GLOBO<b>EDGE</b> SOLUTIONS</div></div>
+  <h1>Loyalty Circle</h1>
+  <p>Track loyal and returning customers. Tiers are assigned automatically from total spend.</p>
+  <div class="stats"><div class="stat"><b id="sCount">0</b><span>Customers</span></div><div class="stat"><b id="sSum">KSh 0</b><span>Total spend</span></div></div>
 </div>
 
+<div class="tabs" id="tabs"></div>
+<div id="undo"></div>
+
+<div class="panel">
+<h2>Add a customer</h2>
+<div class="field"><label for="rep">Sales person</label><select id="rep"><option value="">Select your name</option><option>Brian</option><option>Njoki</option><option>Andika</option><option>Charles</option></select></div>
+<div class="field"><label for="cname">Customer name</label><input id="cname" placeholder="Full name" autocomplete="off"></div>
+<div class="row"><div class="field"><label for="phone">Contact number</label><input id="phone" type="tel" placeholder="07XX XXX XXX"></div>
+<div class="field"><label for="spend">Total spend (KSh)</label><input id="spend" type="number" min="1" placeholder="e.g. 520000"></div></div>
+<div class="preview" id="preview"></div>
+<button class="primary" id="add">Add customer</button>
+<div class="msg" id="msg"></div>
+</div>
+
+<div class="bar"><input id="search" placeholder="Search name, number or sales person"><button class="ghost" id="csv">Export CSV</button></div>
+<div id="list"><div class="empty">Loading…</div></div>
+
+<footer>Gold KSh 500k+ · Silver KSh 350k+ · Bronze KSh 200k+ · Platinum below KSh 200k<br>Shared and saved: every entry is visible to the digital department.</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-(function () {
-  function initGeOffers() {
-    const root = document.getElementById('ge-offers');
-    if (!root) return;
+// Edit thresholds here if the tier order needs to change.
+const TIERS=[{key:'gold',label:'Gold',min:500000},{key:'silver',label:'Silver',min:350000},{key:'bronze',label:'Bronze',min:200000},{key:'platinum',label:'Platinum',min:0}];
+const SUPABASE_URL='https://pomjxjohagpkcvhoicsc.supabase.co';
+const SUPABASE_KEY='sb_publishable_eGDWNZtXQyzw3cAE7YA-Jw_1EdC8Q0f';
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const tierOf=n=>TIERS.find(t=>n>=t.min);
+const ksh=n=>'KSh '+Math.round(Number(n)||0).toLocaleString('en-KE');
+const esc=s=>{const d=document.createElement('div');d.textContent=String(s??'');return d.innerHTML};
+const $=id=>document.getElementById(id);
+let customers=[],filter='all';
+const setMsg=(t,c)=>{$('msg').textContent=t;$('msg').className='msg '+(c||'')};
+const initials=n=>String(n||'').split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase();
 
-    const mega = root.querySelector('#go-mega');
-    const items = root.querySelectorAll('.ge-nav-item');
-    const panels = root.querySelectorAll('.ge-mega section');
-    let megaTimer;
+function card(c){
+  const i=TIERS.findIndex(t=>c.spend>=t.min),t=TIERS[i],nx=TIERS[i-1];
+  const pct=nx?Math.min(100,Math.max(4,((c.spend-t.min)/(nx.min-t.min))*100)):100;
+  return `<div class="card ${t.key}"><div class="av">${esc(initials(c.name))}</div><div class="mid"><div class="cn">${esc(c.name)}</div><div class="cm"><a href="tel:${esc(c.phone)}">${esc(c.phone)}</a> · ${esc(c.rep)}</div><div class="prog"><div style="width:${pct}%"></div></div><div class="nx">${nx?ksh(nx.min-c.spend)+' to '+nx.label:'Top tier'}</div></div><div class="rt"><span class="pill">${t.label}</span><div class="amt" style="margin-top:6px">${ksh(c.spend)}</div></div></div>`;
+}
 
-    function openMega(name) {
-      clearTimeout(megaTimer);
-      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === name));
-      mega.classList.add('open');
+function render(){
+  $('sCount').textContent=customers.length;
+  $('sSum').textContent=ksh(customers.reduce((s,c)=>s+Number(c.spend),0));
+  const cnt={};TIERS.forEach(t=>cnt[t.key]=0);customers.forEach(c=>cnt[tierOf(Number(c.spend)).key]++);
+  $('tabs').innerHTML=`<button class="tab${filter==='all'?' on':''}" data-t="all">All <em>${customers.length}</em></button>`+TIERS.map(t=>`<button class="tab ${t.key}${filter===t.key?' on':''}" data-t="${t.key}"><i></i>${t.label} <em>${cnt[t.key]}</em></button>`).join('');
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{filter=b.dataset.t;render()});
+  const q=$('search').value.trim().toLowerCase();
+  const rows=customers.filter(c=>(filter==='all'||tierOf(Number(c.spend)).key===filter)&&(!q||(c.name+' '+c.phone+' '+c.rep).toLowerCase().includes(q)));
+  let html='';
+  TIERS.forEach(t=>{const g=rows.filter(c=>tierOf(Number(c.spend)).key===t.key);if(!g.length)return;
+    html+=`<div class="sec ${t.key}"><b>${t.label}</b><span>${g.length} · ${ksh(g.reduce((s,c)=>s+Number(c.spend),0))}</span></div>`+g.map(card).join('')});
+  $('list').innerHTML=html||'<div class="empty">No customers here yet.</div>';
+  renderUndo(false);
+}
+
+function renderUndo(confirming){
+  const u=$('undo');
+  if(!customers.length){u.style.display='none';return}
+  const last=customers.reduce((a,b)=>(new Date(b.created_at).getTime()||0)>(new Date(a.created_at).getTime()||0)?b:a);
+  u.style.display='flex';
+  u.innerHTML=confirming
+    ?`<div class="who"><b>Remove ${esc(last.name)}?</b><span>This cannot be undone.</span></div><div><button class="ub yes" id="uy">Yes, remove</button> <button class="ub no" id="un">Cancel</button></div>`
+    :`<div class="who"><b>Last entry: ${esc(last.name)}</b><span>${ksh(last.spend)} · by ${esc(last.rep)}</span></div><button class="ub" id="ub">Undo last entry</button>`;
+  if(confirming){
+    $('un').onclick=()=>renderUndo(false);
+    $('uy').onclick=async()=>{
+      try{const {error}=await supabaseClient.from('loyalty_customers').delete().eq('id',last.id);if(error)throw error;setMsg(last.name+' removed.','ok');await loadCustomers()}
+      catch(e){console.error(e);setMsg('Could not remove the customer. Try again.','err');renderUndo(false)}
     }
-    function closeMega() {
-      megaTimer = setTimeout(() => mega.classList.remove('open'), 120);
-    }
+  } else $('ub').onclick=()=>renderUndo(true);
+}
 
-    items.forEach(item => {
-      item.addEventListener('mouseenter', () => openMega(item.dataset.menu));
-      item.addEventListener('mouseleave', closeMega);
-    });
-    mega.addEventListener('mouseenter', () => clearTimeout(megaTimer));
-    mega.addEventListener('mouseleave', closeMega);
+function preview(){const n=parseFloat($('spend').value);if(!n){$('preview').innerHTML='';return}const t=tierOf(n);$('preview').innerHTML=`<span class="pill ${t.key}">${t.label} tier</span>`}
 
-    const toggle = root.querySelector('.ge-menu-toggle');
-    const mobileMenu = root.querySelector('#go-mobile-menu');
-    if (toggle && mobileMenu) {
-      toggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-      });
-    }
-  }
+async function loadCustomers(){
+  const {data,error}=await supabaseClient.from('loyalty_customers').select('id,name,phone,rep,spend,created_at').order('created_at',{ascending:false}).limit(1000);
+  if(error){console.error(error);$('list').innerHTML='<div class="empty">Could not load customers. Check your connection.</div>';setMsg('Database connection failed.','err');return}
+  customers=(data||[]).map(c=>({...c,spend:Number(c.spend)}));
+  render();
+}
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initGeOffers);
-  } else {
-    initGeOffers();
-  }
-  if (window.jQuery && window.elementorFrontend) {
-    jQuery(window).on('elementor/frontend/init', function () {
-      setTimeout(initGeOffers, 100);
-    });
-  }
-})();
+async function add(){
+  const rep=$('rep').value,name=$('cname').value.trim(),phone=$('phone').value.trim(),spend=parseFloat($('spend').value);
+  if(!rep)return setMsg('Select your name.','err');
+  if(!name)return setMsg('Enter the customer name.','err');
+  if(!phone)return setMsg('Enter a contact number.','err');
+  if(!spend||spend<=0)return setMsg('Enter a valid total spend.','err');
+  $('add').disabled=true;setMsg('Saving…');
+  try{
+    const {error}=await supabaseClient.from('loyalty_customers').insert({name,phone,rep,spend});
+    if(error)throw error;
+    ['cname','phone','spend'].forEach(i=>$(i).value='');preview();setMsg(name+' added as '+tierOf(spend).label+'.','ok');await loadCustomers();
+  }catch(e){console.error(e);setMsg('Could not save this customer. Please try again.','err')}
+  finally{$('add').disabled=false}
+}
+
+function exportCsv(){
+  const rows=[['Name','Phone','Total spend','Tier','Sales person','Added']].concat(customers.map(c=>[c.name,c.phone,c.spend,tierOf(Number(c.spend)).label,c.rep,new Date(c.created_at).toISOString().slice(0,10)]));
+  const csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='loyalty-customers.csv';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+
+$('add').onclick=add;$('csv').onclick=exportCsv;$('spend').oninput=preview;$('search').oninput=render;
+render();
+loadCustomers();
+setInterval(loadCustomers,10000);
+
+supabaseClient.channel('loyalty-customers-live').on('postgres_changes',{event:'*',schema:'public',table:'loyalty_customers'},()=>loadCustomers()).subscribe();
 </script>
-
 </body>
 </html>
