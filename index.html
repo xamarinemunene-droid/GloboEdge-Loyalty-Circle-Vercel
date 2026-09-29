@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GloboEdge — Special Offers</title>
+<style>
+#ge-offers, #ge-offers * { box-sizing: border-box; }
+
+#ge-offers {
+  --ink: #1d1d1f;
+  --grey: #6e6e73;
+  --panel: #f5f5f7;
+  --line: #00000012;
+  --line-strong: #d2d2d7;
+  --blue: #0071e3;
+  --blue-hover: #0077ed;
+
+  width: 100%;
+  background: #fff;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#ge-offers a { text-decoration: none; color: inherit; }
+#ge-offers button { font: inherit; border: none; background: none; cursor: pointer; }
+#ge-offers img { max-width: 100%; display: block; }
+
+/* =========================================================
+   NAV
+   ========================================================= */
+#ge-offers .ge-header {
+  position: sticky; top: 0; z-index: 9999;
+  background: #ffffffd9;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+#ge-offers .ge-nav {
+  height: 58px; max-width: 1320px; margin: auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between; position: relative;
+}
+#ge-offers .ge-logo img { height: 30px; width: auto; }
+#ge-offers .ge-desktop-nav { display: flex; gap: 28px; height: 100%; align-items: center; }
+#ge-offers .ge-desktop-nav a,
+#ge-offers .ge-nav-item button { font-size: 13px; color: var(--ink) !important; padding: 20px 0; }
+#ge-offers .ge-actions { display: flex; gap: 18px; align-items: center; }
+#ge-offers .ge-actions button, #ge-offers .ge-actions a { font-size: 13px; color: var(--ink) !important; }
+#ge-offers .ge-actions button { font-size: 20px; }
+
+#ge-offers .ge-mega {
+  display: none; position: absolute; left: 0; right: 0; top: 58px;
+  background: #fffffff9; box-shadow: 0 20px 50px #00000012; border-bottom: 1px solid var(--line);
+}
+#ge-offers .ge-mega.open { display: block; }
+#ge-offers .ge-mega-inner { max-width: 1320px; margin: auto; padding: 35px 24px 42px; }
+#ge-offers .ge-mega section { display: none; }
+#ge-offers .ge-mega section.active { display: block; }
+#ge-offers .ge-mega section > b { font-size: 12px; text-transform: uppercase; letter-spacing: .16em; color: var(--grey); }
+#ge-offers .ge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 15px; }
+#ge-offers .ge-grid a { background: var(--panel); border-radius: 18px; padding: 18px; display: block; }
+#ge-offers .ge-grid a:hover { background: #ededf0; }
+#ge-offers .ge-grid strong, #ge-offers .ge-grid small { display: block; }
+#ge-offers .ge-grid small { color: var(--grey); margin-top: 7px; font-size: 12px; }
+#ge-offers .ge-menu-toggle { display: none; font-size: 22px; color: var(--ink); }
+#ge-offers .ge-mobile-menu { display: none; }
+
+@media(max-width: 900px) {
+  #ge-offers .ge-desktop-nav { display: none; }
+  #ge-offers .ge-menu-toggle { display: block; }
+  #ge-offers .ge-mobile-menu {
+    display: none; position: fixed; z-index: 9998; inset: 58px 0 0;
+    background: #fff; padding: 20px 24px; overflow: auto;
+  }
+  #ge-offers .ge-mobile-menu.open { display: block; }
+  #ge-offers .ge-mobile-menu a {
+    display: flex; justify-content: space-between; padding: 21px 0;
+    border-bottom: 1px solid var(--line); font-size: 22px; font-weight: 600; color: var(--ink) !important;
+  }
+  #ge-offers .ge-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =========================================================
+   SPECIAL OFFERS — centered, red flaming animated heading
+   ========================================================= */
+#ge-offers .go-special-offers {
+  font-size: clamp(26px, 3.6vw, 42px);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fffdf5;
+  -webkit-text-stroke: 1.4px #000;
+  text-stroke: 1.4px #000;
+  margin: 26px auto 20px;
+  padding: 0 24px;
+  max-width: 1320px;
+  animation: goFlameFlicker 1.1s infinite alternate;
+}
+
+@keyframes goFlameFlicker {
+  0%   { text-shadow: 0 0 4px #fff, 0 0 10px #ff8a80, 0 0 18px #ff3b30, 0 0 28px #d50000, 0 0 40px #8b0000; }
+  25%  { text-shadow: 0 0 6px #fff, 0 0 14px #ff6f60, 0 0 22px #ff1a1a, 0 0 34px #c40000, 0 0 46px #7a0000; }
+  50%  { text-shadow: 0 0 3px #fff, 0 0 8px  #ff9d90, 0 0 16px #ff2b1f, 0 0 26px #cc0000, 0 0 36px #700000; }
+  75%  { text-shadow: 0 0 7px #fff, 0 0 16px #ff5c4d, 0 0 24px #ff1100, 0 0 36px #b30000, 0 0 48px #660000; }
+  100% { text-shadow: 0 0 4px #fff, 0 0 12px #ff8577, 0 0 20px #ff2200, 0 0 30px #c00000, 0 0 42px #7a0000; }
+}
+
+/* =========================================================
+   LAYOUT — hero column + offer sidebar
+   ========================================================= */
+#ge-offers .go-wrap {
+  max-width: 1320px; margin: 0 auto; padding: 0 24px 80px;
+  display: grid; grid-template-columns: 2.15fr 1fr; gap: 22px; align-items: start;
+}
+
+/* =========================================================
+   HERO BLOCKS (left column)
+   ========================================================= */
+#ge-offers .go-hero {
+  position: relative;
+  min-height: 460px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+}
+#ge-offers .go-hero:last-of-type { margin-bottom: 0; }
+
+#ge-offers .go-hero video,
+#ge-offers .go-hero .go-hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; background-size: cover; background-position: center;
+}
+
+#ge-offers .go-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, #00000000 0%, #00000000 55%, #00000080 100%);
+}
+
+/* Glassmorphism caption, tinted yellow, shared by every hero block */
+#ge-offers .go-hero-caption {
+  position: relative; z-index: 2;
+  margin: 0 0 26px 26px;
+  max-width: 420px;
+  border-radius: 20px;
+  padding: 22px 26px;
+  background: rgba(255, 221, 87, 0.22);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+}
+
+#ge-offers .go-hero-caption h3 {
+  font-size: 22px; font-weight: 700; letter-spacing: -.02em;
+  margin: 0 0 6px; color: var(--ink);
+}
+#ge-offers .go-hero-caption p {
+  font-size: 14px; line-height: 1.5; color: #2c2c2e; margin: 0 0 14px;
+}
+
+#ge-offers .go-hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+#ge-offers .go-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 20px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  transition: transform .15s ease;
+}
+#ge-offers .go-btn:hover { transform: translateY(-1px); }
+#ge-offers .go-btn-dark { background: #1d1d1f; color: #fff !important; }
+#ge-offers .go-btn-outline { background: transparent; border: 1.5px solid #1d1d1f; color: #1d1d1f !important; }
+
+/* =========================================================
+   PERK BADGES — small chips overlaid on product images
+   ========================================================= */
+#ge-offers .go-perks {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+#ge-offers .go-perk {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,0,0,0.62);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   OFFER SIDEBAR (right column) — 4 square cards
+   ========================================================= */
+#ge-offers .go-offers-col { display: flex; flex-direction: column; gap: 22px; }
+
+#ge-offers .go-offer-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 20px;
+  overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+
+#ge-offers .go-offer-image {
+  position: relative;
+  aspect-ratio: 1 / 1; width: 100%;
+  background-size: cover; background-position: center;
+  background-color: var(--panel);
+}
+
+#ge-offers .go-offer-body { padding: 14px 16px 18px; }
+
+#ge-offers .go-offer-caption {
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  margin: 0 0 10px; line-height: 1.4;
+}
+
+#ge-offers .go-offer-actions { display: flex; gap: 8px; }
+
+#ge-offers .go-btn-sm {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 1; padding: 8px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; transition: transform .15s ease;
+}
+#ge-offers .go-btn-sm:hover { transform: translateY(-1px); }
+#ge-offers .go-btn-dark-sm { background: #1d1d1f; color: #fff !important; }
+#ge-offers .go-btn-outline-sm { background: transparent; border: 1.3px solid #1d1d1f; color: #1d1d1f !important; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+#ge-offers .ge-footer {
+  padding: 65px 24px 30px; background: #f5f5f7 !important; color: #6e6e73 !important;
+}
+#ge-offers .ge-footer > div, #ge-offers .ge-footer > p, #ge-offers .ge-footer > nav {
+  max-width: 1320px; margin: 0 auto;
+}
+#ge-offers .ge-footer .footer-logo { height: 26px; width: auto; }
+#ge-offers .ge-footer .footer-tagline { color: #6e6e73 !important; font-size: 14px; margin: 12px 0 0; }
+#ge-offers .ge-footer nav { display: flex; gap: 24px; margin-top: 30px !important; font-size: 13px; }
+#ge-offers .ge-footer nav a { color: #1d1d1f !important; font-weight: 500; }
+#ge-offers .ge-footer .footer-copy {
+  border-top: 1px solid #0001; padding-top: 20px; margin-top: 45px; font-size: 12px; color: #6e6e73 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width: 900px) {
+  #ge-offers .go-wrap { grid-template-columns: 1fr; }
+  #ge-offers .go-hero { min-height: 380px; }
+}
+@media(max-width: 560px) {
+  #ge-offers .go-hero { min-height: 320px; border-radius: 20px; }
+  #ge-offers .go-hero-caption { margin: 0 0 18px 18px; max-width: calc(100% - 36px); padding: 18px 20px; }
+  #ge-offers .go-special-offers { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="ge-offers">
+
+  <header class="ge-header">
+    <div class="ge-nav">
+      <a class="ge-logo" href="/">
+        <img src="https://globoedge.co.ke/wp-content/uploads/2026/09/GloboEdge-Apple-Authorised-Reseller-on-black-background-e1668686070534.png" alt="GloboEdge">
+      </a>
+      <button class="ge-menu-toggle" type="button">☰</button>
+      <nav class="ge-desktop-nav">
+        <div class="ge-nav-item" data-menu="mac"><button>Mac</button></div>
+        <div class="ge-nav-item" data-menu="iphone"><button>iPhone</button></div>
+        <div class="ge-nav-item" data-menu="ipad"><button>iPad</button></div>
+        <div class="ge-nav-item" data-menu="watch"><button>Watch</button></div>
+        <div class="ge-nav-item" data-menu="airpods"><button>AirPods</button></div>
+        <div class="ge-nav-item" data-menu="accessories"><button>Accessories</button></div>
+        <a href="/offers/">Offers</a>
+      </nav>
+      <div class="ge-actions">
+        <button type="button">⌕</button>
+        <a href="/cart/">Bag</a>
+      </div>
+    </div>
+
+    <div class="ge-mega" id="go-mega">
+      <div class="ge-mega-inner">
+        <section data-panel="mac"><b>Mac</b>
+          <div class="ge-grid">
+            <a href="/mac/macbook-pro/"><strong>MacBook Pro</strong><small>Pro performance.</small></a>
+            <a href="/mac/macbook-air/"><strong>MacBook Air</strong><small>Thin. Light. Powerful.</small></a>
+            <a href="/mac/imac/"><strong>iMac</strong><small>A desktop that stands out.</small></a>
+            <a href="/mac/mac-mini/"><strong>Mac mini</strong><small>Small size. Serious power.</small></a>
+          </div>
+        </section>
+        <section data-panel="iphone"><b>iPhone</b>
+          <div class="ge-grid">
+            <a href="/iphone/iphone-18-pro-max/"><strong>iPhone 18 Pro Max</strong><small>The ultimate iPhone.</small></a>
+            <a href="/iphone/iphone-18-duo/"><strong>iPhone 18 Duo</strong><small>Beautiful. Powerful.</small></a>
+            <a href="/iphone/iphone-17-pro-max/"><strong>iPhone 17 Pro Max</strong><small>Maximum performance.</small></a>
+            <a href="/iphone/iphone-air/"><strong>iPhone 17 Air</strong><small>Light. Fast. Remarkable.</small></a>
+          </div>
+        </section>
+        <section data-panel="ipad"><b>iPad</b>
+          <div class="ge-grid">
+            <a href="/ipad/ipad-pro/"><strong>iPad Pro</strong><small>Power for your workflow.</small></a>
+            <a href="/ipad/ipad-air/"><strong>iPad Air</strong><small>Powerful and versatile.</small></a>
+          </div>
+        </section>
+        <section data-panel="watch"><b>Apple Watch</b>
+          <div class="ge-grid">
+            <a href="/watch/ultra-4/"><strong>Apple Watch Ultra 4</strong><small>The ultimate sports watch.</small></a>
+            <a href="/watch/series-12/"><strong>Apple Watch Series 12</strong><small>Health, fitness and connection.</small></a>
+          </div>
+        </section>
+        <section data-panel="airpods"><b>AirPods</b>
+          <div class="ge-grid">
+            <a href="/airpods/airpods-pro/"><strong>AirPods Pro</strong><small>Immersive sound.</small></a>
+            <a href="/airpods/airpods-max/"><strong>AirPods Max</strong><small>Premium high-fidelity sound.</small></a>
+          </div>
+        </section>
+        <section data-panel="accessories"><b>Accessories</b>
+          <div class="ge-grid">
+            <a href="/accessories/cases/"><strong>Cases</strong><small>Protection with style.</small></a>
+            <a href="/accessories/chargers/"><strong>Power &amp; Charging</strong><small>Stay powered.</small></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </header>
+
+  <div class="ge-mobile-menu" id="go-mobile-menu">
+    <a href="/mac/">Mac <span>›</span></a>
+    <a href="/iphone/">iPhone <span>›</span></a>
+    <a href="/ipad/">iPad <span>›</span></a>
+    <a href="/watch/">Watch <span>›</span></a>
+    <a href="/airpods/">AirPods <span>›</span></a>
+    <a href="/accessories/">Accessories <span>›</span></a>
+    <a href="/offers/">Offers <span>›</span></a>
+  </div>
+
+  <!-- SPECIAL OFFERS — centered, red flaming heading -->
+  <h2 class="go-special-offers">Special Offers</h2>
+
+  <div class="go-wrap">
+
+    <!-- LEFT: 4 hero blocks -->
+    <div class="go-hero-col">
+
+      <!-- HERO 1 — iPhone Duo (video loop) -->
+      <div class="go-hero">
+        <video autoplay muted loop playsinline poster="YOUR-DUO-HERO-POSTER-URL-HERE">
+          <source src="YOUR-DUO-HERO-VIDEO-URL-HERE" type="video/mp4">
+        </video>
+        <div class="go-hero-caption">
+          <h3>iPhone Duo</h3>
+          <p>The first foldable iPhone. From KSh 349,999.</p>
+          <div class="go-hero-actions">
+            <a class="go-btn go-btn-outline" href="/iphone/iphone-18-duo/">Learn More</a>
+            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO 2 — iPhone Air (video loop) -->
+      <div class="go-hero">
+        <video autoplay muted loop playsinline poster="YOUR-AIR-HERO-POSTER-URL-HERE">
+          <source src="https://globoedge.co.ke/wp-content/uploads/2026/09/iPhone-Air_2-1.mp4" type="video/mp4">
+        </video>
+        <div class="go-hero-caption">
+          <h3>iPhone Air</h3>
+          <p>Incredibly light and thin. From KSh 179,999.</p>
+          <div class="go-hero-actions">
+            <a class="go-btn go-btn-outline" href="/iphone/iphone-air/">Learn More</a>
+            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO 3 — MacBook Pro (static photo) -->
+      <div class="go-hero">
+        <div class="go-hero-img" style="background-image:url('YOUR-MACBOOKPRO-STATIC-IMAGE-URL-HERE');"></div>
+        <div class="go-hero-caption">
+          <h3>MacBook Pro</h3>
+          <p>Pro performance, M4 Pro inside. From KSh 299,999.</p>
+          <div class="go-hero-actions">
+            <a class="go-btn go-btn-outline" href="/mac/macbook-pro/">Learn More</a>
+            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO 4 — NEW: MacBook Pro (video loop) -->
+      <div class="go-hero">
+        <video autoplay muted loop playsinline poster="YOUR-MACBOOKPRO-VIDEO-POSTER-URL-HERE">
+          <source src="YOUR-MACBOOKPRO-VIDEO-URL-HERE" type="video/mp4">
+        </video>
+        <div class="go-hero-caption">
+          <h3>MacBook Pro — In Motion</h3>
+          <p>See the M4 Pro chip and Liquid Retina XDR display in action.</p>
+          <div class="go-hero-actions">
+            <a class="go-btn go-btn-outline" href="/mac/macbook-pro/">Learn More</a>
+            <a class="go-btn go-btn-dark" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: 4 square offer cards, with perk badges on each image -->
+    <div class="go-offers-col">
+
+      <div class="go-offer-card">
+        <div class="go-offer-image" style="background-image:url('YOUR-AIRPODSPRO-SQUARE-IMAGE-URL-HERE');">
+          <div class="go-perks">
+            <span class="go-perk">✓ 24-Mo Warranty</span>
+            <span class="go-perk">🚚 Free Pickup</span>
+          </div>
+        </div>
+        <div class="go-offer-body">
+          <p class="go-offer-caption">AirPods Pro 3 — Now KSh 34,999</p>
+          <div class="go-offer-actions">
+            <a class="go-btn-sm go-btn-outline-sm" href="/airpods/airpods-pro/">Learn More</a>
+            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="go-offer-card">
+        <div class="go-offer-image" style="background-image:url('YOUR-WATCHULTRA-SQUARE-IMAGE-URL-HERE');">
+          <div class="go-perks">
+            <span class="go-perk">✓ Genuine Apple</span>
+            <span class="go-perk">🚚 Free Pickup</span>
+          </div>
+        </div>
+        <div class="go-offer-body">
+          <p class="go-offer-caption">Apple Watch Ultra 4 — Now KSh 124,999</p>
+          <div class="go-offer-actions">
+            <a class="go-btn-sm go-btn-outline-sm" href="/watch/ultra-4/">Learn More</a>
+            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="go-offer-card">
+        <div class="go-offer-image" style="background-image:url('YOUR-IPADPRO-SQUARE-IMAGE-URL-HERE');">
+          <div class="go-perks">
+            <span class="go-perk">✓ 24-Mo Warranty</span>
+            <span class="go-perk">💳 Pay on Delivery</span>
+          </div>
+        </div>
+        <div class="go-offer-body">
+          <p class="go-offer-caption">iPad Pro 13″ — Now KSh 184,999</p>
+          <div class="go-offer-actions">
+            <a class="go-btn-sm go-btn-outline-sm" href="/ipad/ipad-pro/">Learn More</a>
+            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="go-offer-card">
+        <div class="go-offer-image" style="background-image:url('YOUR-IPHONE17PROMAX-SQUARE-IMAGE-URL-HERE');">
+          <div class="go-perks">
+            <span class="go-perk">✓ Genuine Apple</span>
+            <span class="go-perk">🚚 Free Pickup</span>
+          </div>
+        </div>
+        <div class="go-offer-body">
+          <p class="go-offer-caption">iPhone 17 Pro Max — Now KSh 214,999</p>
+          <div class="go-offer-actions">
+            <a class="go-btn-sm go-btn-outline-sm" href="/iphone/iphone-17-pro-max/">Learn More</a>
+            <a class="go-btn-sm go-btn-dark-sm" href="/buy-now/">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="ge-footer">
+    <div>
+      <img class="footer-logo" src="https://globoedge.co.ke/wp-content/uploads/2026/09/GloboEdge-Apple-Authorised-Reseller-on-black-background-e1668686070534.png" alt="GloboEdge">
+      <p class="footer-tagline">Premium Apple products. Sales · Service · Support</p>
+    </div>
+    <nav>
+      <a href="/contact/">Contact</a>
+      <a href="/support/">Support</a>
+      <a href="/warranty/">Warranty</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+    <p class="footer-copy">© 2026 GloboEdge Solutions. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  function initGeOffers() {
+    const root = document.getElementById('ge-offers');
+    if (!root) return;
+
+    const mega = root.querySelector('#go-mega');
+    const items = root.querySelectorAll('.ge-nav-item');
+    const panels = root.querySelectorAll('.ge-mega section');
+    let megaTimer;
+
+    function openMega(name) {
+      clearTimeout(megaTimer);
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === name));
+      mega.classList.add('open');
+    }
+    function closeMega() {
+      megaTimer = setTimeout(() => mega.classList.remove('open'), 120);
+    }
+
+    items.forEach(item => {
+      item.addEventListener('mouseenter', () => openMega(item.dataset.menu));
+      item.addEventListener('mouseleave', closeMega);
+    });
+    mega.addEventListener('mouseenter', () => clearTimeout(megaTimer));
+    mega.addEventListener('mouseleave', closeMega);
+
+    const toggle = root.querySelector('.ge-menu-toggle');
+    const mobileMenu = root.querySelector('#go-mobile-menu');
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGeOffers);
+  } else {
+    initGeOffers();
+  }
+  if (window.jQuery && window.elementorFrontend) {
+    jQuery(window).on('elementor/frontend/init', function () {
+      setTimeout(initGeOffers, 100);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
